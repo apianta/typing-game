@@ -18,38 +18,39 @@ const messageElement = document.getElementById('message');
 const typedValueElement = document.getElementById('typed-value');
 
 // Start and track
+// end of script.js
 document.getElementById('start').addEventListener('click', () => {
-  // get a quote
+  // Get a quote
   const quoteIndex = Math.floor(Math.random() * quotes.length);
   const quote = quotes[quoteIndex];
-  //   put the quote into an array of words
+  // Put the quote into an array of words
   words = quote.split(' ');
-  //   reset the word index for tracking
+  // Reset the word index for tracking
   wordIndex = 0;
 
   //  UI updates
-  // Create an array of span elements so we can set a class
+  //  Create an array of span elements so we can set a class
   const spanWords = words.map(function (word) {
     return `<span>${word}</span>`;
   });
-  //   Convert into string and set as innerHTML on quote display
+  //  Convert into string and set as innerHTML on quote display
   quoteElement.innerHTML = spanWords.join('');
-  //   Highlight the first word
+  //  Highlight the first word
   quoteElement.childNodes[0].className = 'highlight';
-  // Clear any prior messages
+  //  Clear any prior messages
   messageElement.innerText = '';
 
-  //   Setup the textbox
-  //   Clear the textbox
+  //  Setup the textbox
+  //  Clear the textbox
   typedValueElement.value = '';
-  //   Set focus
+  //  Set focus
   typedValueElement.focus();
-  //   Set the event handler
+  //  Set the event handler
 
-  //   Start the timer
+  //  Start the timer
   startTime = new Date().getTime();
 });
-// Add typing logic
+//    Add typing logic
 typedValueElement.addEventListener('input', () => {
   // Get the current word
   const currentWord = words[wordIndex];
@@ -73,5 +74,14 @@ typedValueElement.addEventListener('input', () => {
     for (const wordElement of quoteElement.childNodes) {
       wordElement.className = '';
     }
+    // highlight the new word
+    quoteElement.childNodes[wordIndex].className = 'highlight';
+  } else if (currentWord.startsWith(typedValue)) {
+    // currently correct
+    // highlight the next word
+    typedValueElement.className = '';
+  } else {
+    // error state
+    typedValueElement.className = 'error';
   }
 });
