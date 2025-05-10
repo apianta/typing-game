@@ -46,14 +46,17 @@ document.getElementById('start').addEventListener('click', () => {
   //  Set focus
   typedValueElement.focus();
   //  Set the event handler
+  typedValueElement.addEventListener('input', onInput);
+  typedValueElement.disabled = false;
 
   //  Start the timer
   startTime = new Date().getTime();
 });
 //    Add typing logic
-typedValueElement.addEventListener('input', () => {
+function onInput(event) {
   // Get the current word
   const currentWord = words[wordIndex];
+
   // Get the current value
   const typedValue = typedValueElement.value;
 
@@ -66,6 +69,8 @@ typedValueElement.addEventListener('input', () => {
     }seconds.`;
 
     messageElement.innerText = message;
+    typedValueElement.removeEventListener('input', onInput);
+    typedValueElement.disabled = true;
   } else if (typedValue.endsWith(' ') && typedValue.trim() === currentWord) {
     // End of word
     // Clear the typedValueElement for the new word
@@ -86,4 +91,4 @@ typedValueElement.addEventListener('input', () => {
     // error state
     typedValueElement.className = 'error';
   }
-});
+}
