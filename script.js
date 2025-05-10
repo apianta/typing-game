@@ -77,7 +77,7 @@ typedValueElement.addEventListener('input', () => {
       wordElement.className = '';
     }
     // highlight the new word
-    quoteElement.childNodes[wordIndex].className = 'highlight';
+    quoteElement.children[wordIndex].className = 'highlight';
   } else if (currentWord.startsWith(typedValue)) {
     // currently correct
     // highlight the next word
