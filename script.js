@@ -34,7 +34,7 @@ document.getElementById('start').addEventListener('click', () => {
     return `<span>${word}</span>`;
   });
   //  Convert into string and set as innerHTML on quote display
-  quoteElement.innerHTML = spanWords.join('');
+  quoteElement.innerHTML = spanWords.join(' ');
   //  Highlight the first word
   quoteElement.childNodes[0].className = 'highlight';
   //  Clear any prior messages
@@ -64,6 +64,7 @@ typedValueElement.addEventListener('input', () => {
     const message = `CONGRATULATIONS! You finished in ${
       elapsedTime / 1000
     }seconds.`;
+
     messageElement.innerText = message;
   } else if (typedValue.endsWith(' ') && typedValue.trim() === currentWord) {
     // End of word
