@@ -64,6 +64,7 @@ typedValueElement.addEventListener('input', () => {
     const message = `CONGRATULATIONS! You finished in ${
       elapsedTime / 1000
     }seconds.`;
+    messageElement.innerText = message;
   } else if (typedValue.endsWith(' ') && typedValue.trim() === currentWord) {
     // End of word
     // Clear the typedValueElement for the new word
