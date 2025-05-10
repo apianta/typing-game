@@ -71,6 +71,12 @@ function onInput(event) {
     messageElement.innerText = message;
     typedValueElement.removeEventListener('input', onInput);
     typedValueElement.disabled = true;
+
+    // show modal dialog
+    const modalMessage = document.getElementById('modal-message');
+    const modal = document.getElementById('modal');
+    modalMessage.innerText = message;
+    modal.classList.remove('hidden');
   } else if (typedValue.endsWith(' ') && typedValue.trim() === currentWord) {
     // End of word
     // Clear the typedValueElement for the new word
@@ -92,3 +98,8 @@ function onInput(event) {
     typedValueElement.className = 'error';
   }
 }
+
+document.getElementById('close-modal').addEventListener('click', () => {
+  const modal = document.getElementById('modal');
+  modal.classList.add('hidden');
+});
