@@ -36,7 +36,7 @@ document.getElementById('start').addEventListener('click', () => {
   //  Convert into string and set as innerHTML on quote display
   quoteElement.innerHTML = spanWords.join(' ');
   //  Highlight the first word
-  quoteElement.childNodes[0].className = 'highlight';
+  quoteElement.children[0].className = 'highlight';
   //  Clear any prior messages
   messageElement.innerText = '';
 
@@ -73,7 +73,7 @@ typedValueElement.addEventListener('input', () => {
     // Move to the next word
     wordIndex++;
     // reset the class name for all elements in quote
-    for (const wordElement of quoteElement.childNodes) {
+    for (const wordElement of quoteElement.children) {
       wordElement.className = '';
     }
     // highlight the new word
