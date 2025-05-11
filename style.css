@@ -97,3 +97,12 @@ button#start:hover {
 .hidden {
   display: none;
 }
+
+/* High score styling  */
+#high-score {
+  font-weight: bold;
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  color: #333;
+}

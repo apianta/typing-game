@@ -75,6 +75,7 @@ function onInput(event) {
     const modal = document.getElementById('modal');
     modalMessage.innerText = message;
     modal.classList.remove('hidden');
+    updateHighScoreDisplay();
   } else if (typedValue.endsWith(' ') && typedValue.trim() === currentWord) {
     // End of word
     // Clear the typedValueElement for the new word
@@ -101,3 +102,18 @@ document.getElementById('close-modal').addEventListener('click', () => {
   const modal = document.getElementById('modal');
   modal.classList.add('hidden');
 });
+
+// High score display
+function updateHighScoreDisplay() {
+  const highScore = localStorage.getItem('highScore');
+  const highScoreElement = document.getElementById('high-score');
+  if (highScore) {
+    highScoreElement.innerText = `Best time: ${parseFloat(highScore).toFixed(
+      2
+    )} seconds`;
+  } else {
+    highScoreElement.innerText = `Best time: --`;
+  }
+}
+
+updateHighScoreDisplay();
