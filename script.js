@@ -64,9 +64,7 @@ function onInput(event) {
     // End of sentence
     // Display success
     const elapsedTime = new Date().getTime() - startTime;
-    const message = `CONGRATULATIONS! You finished in ${
-      elapsedTime / 1000
-    }seconds.`;
+    const message = `${elapsedTime / 1000} seconds!`;
 
     messageElement.innerText = message;
     typedValueElement.removeEventListener('input', onInput);
