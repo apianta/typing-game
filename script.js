@@ -12,6 +12,8 @@ let words = [];
 let wordIndex = 0;
 // starting time
 let startTime = Date.now();
+// game started flag
+let gameStarted = false;
 // page elements
 const quoteElement = document.getElementById('quote');
 const messageElement = document.getElementById('message');
@@ -20,6 +22,7 @@ const typedValueElement = document.getElementById('typed-value');
 // Start and track
 // end of script.js
 document.getElementById('start').addEventListener('click', () => {
+  gameStarted = true;
   // Get a quote
   const quoteIndex = Math.floor(Math.random() * quotes.length);
   const quote = quotes[quoteIndex];
@@ -55,7 +58,7 @@ document.getElementById('start').addEventListener('click', () => {
 
 // Allow Enter key to trigger the Start buttom when input is disabled
 document.addEventListener('keydown', (event) => {
-  if (event.key === 'Enter' && typedValueElement.disabled) {
+  if (event.key === 'Enter' && !gameStarted) {
     document.getElementById('start').click();
   }
 });
