@@ -63,6 +63,14 @@ document.addEventListener('keydown', (event) => {
   }
 });
 
+// Allow Enter key to close modal when it's open
+document.addEventListener('keydown', (event) => {
+  const modal = document.getElementById('modal');
+  if (event.key === 'Enter' && !modal.classList.contains('hidden')) {
+    document.getElementById('close-modal').click();
+  }
+});
+
 //    Add typing logic
 function onInput(event) {
   // Get the current word
@@ -119,6 +127,7 @@ document.getElementById('close-modal').addEventListener('click', () => {
   const modal = document.getElementById('modal');
   modal.classList.add('hidden');
   typedValueElement.value = '';
+  gameStarted = false;
 });
 
 // High score display
