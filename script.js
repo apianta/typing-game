@@ -75,6 +75,11 @@ function onInput(event) {
     const modal = document.getElementById('modal');
     modalMessage.innerText = message;
     modal.classList.remove('hidden');
+    const seconds = elapsedTime / 1000;
+    const prevBest = parseFloat(localStorage.getItem('highScore'));
+    if (!prevBest || seconds < prevBest) {
+      localStorage.setItem('highScore', seconds);
+    }
     updateHighScoreDisplay();
   } else if (typedValue.endsWith(' ') && typedValue.trim() === currentWord) {
     // End of word
