@@ -16,6 +16,10 @@ h1 {
   text-shadow: 1px;
 }
 
+p#quote {
+  font-family: 'Merriweather', serif;
+}
+
 .highlight {
   background-color: #ffc849;
   padding: 0.2em o.4em;
