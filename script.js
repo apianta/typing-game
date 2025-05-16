@@ -58,7 +58,8 @@ function onInput(event) {
   const currentWord = words[wordIndex];
 
   // Get the current value
-  const typedValue = typedValueElement.value;
+  const rawValue = typedValueElement.value;
+  const typedValue = rawValue.trim();
 
   if (typedValue === currentWord && wordIndex === words.length - 1) {
     // End of sentence
@@ -81,7 +82,7 @@ function onInput(event) {
       localStorage.setItem('highScore', seconds);
     }
     updateHighScoreDisplay();
-  } else if (typedValue.endsWith(' ') && typedValue.trim() === currentWord) {
+  } else if (rawValue.endsWith(' ') && typedValue === currentWord) {
     // End of word
     // Clear the typedValueElement for the new word
     typedValueElement.value = '';
