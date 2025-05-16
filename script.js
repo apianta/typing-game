@@ -107,6 +107,7 @@ function onInput(event) {
 document.getElementById('close-modal').addEventListener('click', () => {
   const modal = document.getElementById('modal');
   modal.classList.add('hidden');
+  typedValueElement.value = '';
 });
 
 // High score display
