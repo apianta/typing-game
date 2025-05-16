@@ -52,6 +52,14 @@ document.getElementById('start').addEventListener('click', () => {
   //  Start the timer
   startTime = new Date().getTime();
 });
+
+// Allow Enter key to trigger the Start buttom when input is disabled
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Enter' && typedValueElement.disabled) {
+    document.getElementById('start').click();
+  }
+});
+
 //    Add typing logic
 function onInput(event) {
   // Get the current word
