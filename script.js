@@ -60,6 +60,7 @@ document.getElementById('start').addEventListener('click', () => {
 document.addEventListener('keydown', (event) => {
   if (event.key === 'Enter' && !gameStarted) {
     document.getElementById('start').click();
+    typedValueElement.focus();
   }
 });
 
