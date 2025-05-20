@@ -1,21 +1,18 @@
 body {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  height: 100vh;
   min-height: 100vh;
-  padding: 2rem;
+  margin: 0;
   background-color: #f4f4f4;
 }
 
 .wrapper {
+  flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 2rem;
+  padding: 5rem;
   box-sizing: border-box;
-  min-height: 100vh;
 }
 
 .container {
@@ -38,6 +35,10 @@ footer {
   margin-top: auto;
   width: 100%;
   text-align: center;
+}
+
+p.intro {
+  font-family: sans-serif;
 }
 
 p#quote {
@@ -150,4 +151,5 @@ footer p {
 
 footer a {
   color: #232323;
+  font-size: 1.5em;
 }
