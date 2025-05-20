@@ -41,6 +41,9 @@ footer {
 
 p#quote {
   font-family: 'Merriweather', serif;
+  font-size: 1.5em;
+  min-height: 3.5em;
+  transition: all 0.2s ease;
 }
 
 .highlight {
